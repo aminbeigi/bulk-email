@@ -2,6 +2,8 @@ import smtplib
 from email.message import EmailMessage
 from .static_config_parser import StaticConfigParser
 import json
+import string
+import random
 
 """Bulk email many recipients
 
@@ -24,3 +26,16 @@ class BulkEmail:
                 msg['To'] = recipient
                 msg.set_content('an epic body for an epic email')
                 smtp.send_message(msg)
+    
+    @classmethod
+    def get_recipient_list_length(cls):
+        return len(cls.recipient_list)
+
+
+    @staticmethod
+    def generate_launch_code(n):
+        alphabet = string.ascii_uppercase
+        launch_code = ''
+        for _ in range(n):
+            launch_code += random.choice(alphabet)
+        return launch_code
