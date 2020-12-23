@@ -13,4 +13,5 @@ logger = Logger.getLogger()
 #     exit()
 
 BulkEmail.bulk_email()
-logger.info(f'email sent to the following: {list(recipient for recipient in BulkEmail.get_recipient_list())}')
+
+logger.debug(f'{BulkEmail.get_recipient_list()}')
