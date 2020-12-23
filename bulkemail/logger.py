@@ -8,7 +8,7 @@ class Logger:
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
 
-    file_handler = logging.FileHandler('src/logging/test.log')
+    file_handler = logging.FileHandler(LOGGING_FILE_PATH)
     file_handler.setLevel(logging.DEBUG)
 
     formatter = logging.Formatter('[%(asctime)s] %(name)s %(levelname)s (%(funcName)s) %(message)s')
