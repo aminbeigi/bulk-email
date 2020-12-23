@@ -32,10 +32,10 @@ class BulkEmail:
         return cls.recipient_list
 
     @staticmethod
-    def generate_launch_code(n):
+    def generate_launch_code(length=4):
         alphabet = string.ascii_uppercase
         launch_code = ''
-        for i in range(n):
+        for i in range(length):
             if i % 2 == 0 and i != 0: launch_code += ' '
             launch_code += random.choice(alphabet)
         return launch_code
