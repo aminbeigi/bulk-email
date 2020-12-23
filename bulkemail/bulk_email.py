@@ -28,9 +28,8 @@ class BulkEmail:
                 smtp.send_message(msg)
     
     @classmethod
-    def get_recipient_list_length(cls):
-        return len(cls.recipient_list)
-
+    def get_recipient_list(cls):
+        return cls.recipient_list
 
     @staticmethod
     def generate_launch_code(n):

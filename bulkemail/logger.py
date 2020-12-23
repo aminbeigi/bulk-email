@@ -11,10 +11,10 @@ class Logger:
     file_handler = logging.FileHandler(LOGGING_FILE_PATH)
     file_handler.setLevel(logging.DEBUG)
 
-    formatter = logging.Formatter('[%(asctime)s] %(name)s %(levelname)s (%(funcName)s) %(message)s')
+    formatter = logging.Formatter('[%(asctime)s] %(name)s %(levelname)s %(message)s')
     logger.addHandler(file_handler)
     file_handler.setFormatter(formatter)
 
     @classmethod
-    def get_logger(cls):
+    def getLogger(cls):
         return cls.logger
