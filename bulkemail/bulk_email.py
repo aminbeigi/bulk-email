@@ -1,6 +1,6 @@
 import smtplib
 from email.message import EmailMessage
-from .static_config_parser import StaticConfigParser
+from .config_parser import ConfigParser
 import json
 import string
 import random
@@ -11,9 +11,9 @@ This class will send one email to a large group at once.
 """
 
 class BulkEmail:
-    sender_email_address = StaticConfigParser.get('EMAIL', 'email_address')
-    sender_email_password = StaticConfigParser.get('EMAIL', 'email_password')
-    recipient_list = json.loads(StaticConfigParser.get('EMAIL', 'recipient_list'))
+    sender_email_address = ConfigParser.get('EMAIL', 'email_address')
+    sender_email_password = ConfigParser.get('EMAIL', 'email_password')
+    recipient_list = json.loads(ConfigParser.get('EMAIL', 'recipient_list'))
 
     @classmethod
     def bulk_email(cls):   

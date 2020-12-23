@@ -1,8 +1,8 @@
 import configparser
 
-"""A static config parser that will read from config.ini."""
+"""A config parser that will read from config.ini."""
 
-class StaticConfigParser():
+class ConfigParser():
     config_file_path = 'config/config.ini'
     config = configparser.ConfigParser()
 
@@ -12,6 +12,6 @@ class StaticConfigParser():
     except (OSError, IOError) as e:
         raise Exception("Couldn't find path to config.ini.") from e
     
-    @staticmethod
-    def get(parent, child):
-        return StaticConfigParser.config.get(parent, child)
+    @classmethod
+    def get(cls, parent, child):
+        return cls.config.get(parent, child)
