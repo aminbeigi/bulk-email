@@ -16,15 +16,15 @@ class BulkEmail:
     recipient_list = json.loads(ConfigParser.get('EMAIL', 'recipient_list'))
 
     @classmethod
-    def bulk_email(cls):   
+    def bulk_email(cls, subject, body):   
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
             smtp.login(cls.sender_email_address, cls.sender_email_password)
             for recipient in cls.recipient_list:
                 msg = EmailMessage()
-                msg['Subject'] = 'Hello there'
+                msg['Subject'] = subject
                 msg['From'] = cls.sender_email_address
                 msg['To'] = recipient
-                msg.set_content('an epic body for an epic email')
+                msg.set_content(body)
                 smtp.send_message(msg)
     
     @classmethod
