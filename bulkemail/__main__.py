@@ -5,7 +5,7 @@ user_input = input(f"""You are about to email {BulkEmail.get_recipient_list_leng
 Enter the following: {launch_code}
 -> """)
 if user_input != launch_code:  
-    print("Abort mission.")
+    print('Abort mission.')
     exit()
 
 BulkEmail.bulk_email()

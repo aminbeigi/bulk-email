@@ -21,10 +21,10 @@ class BulkEmail:
             smtp.login(cls.sender_email_address, cls.sender_email_password)
             for recipient in cls.recipient_list:
                 msg = EmailMessage()
-                msg['Subject'] = "Hello there"
+                msg['Subject'] = 'Hello there'
                 msg['From'] = cls.sender_email_address
                 msg['To'] = recipient
-                msg.set_content("an epic body for an epic email")
+                msg.set_content('an epic body for an epic email')
                 smtp.send_message(msg)
     
     @classmethod
