@@ -1,8 +1,8 @@
 <p align="center">
-<img src="attachments\email.png"/>
+<img src="attachments\email.png" width="128" height="128"/>
 <br/>
-<h3 align="center">Bulk Email</h3>
-<p align="center">Source code for Bulk-Email.</p>
+<h3 align="center">Bulk-Email</h3>
+<p align="center">Automate the process of sending emails to multiple recipients.</p>
 <h2></h2>
 </p>
 <br />
@@ -16,6 +16,9 @@
 ## Description
 Bulk-Email uses the SMTP protocol to send emails to multiple recipients.  
 Supports attachments which can be configured in config.ini.
+
+## Requirements
+* Python 3.8.2+
 
 ## Contributions
 Contributions are always welcome!  
