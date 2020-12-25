@@ -17,6 +17,9 @@
 Bulk-Email uses the SMTP protocol to send emails to multiple recipients.  
 Supports attachments which can be configured in config.ini.
 
+## Requirements
+* Python 3.8.2+
+
 ## Contributions
 Contributions are always welcome!  
 Just make a [pull request](../../pulls).
