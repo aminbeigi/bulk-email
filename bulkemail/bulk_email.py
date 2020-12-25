@@ -13,20 +13,19 @@ This class will send one email to a large group at once.
 class BulkEmail:
     sender_email_address = ConfigParser.get('EMAIL', 'email_address')
     sender_email_password = ConfigParser.get('EMAIL', 'email_password')
-    recipient_lst = json.loads(ConfigParser.get('EMAIL', 'recipient_lst'))
+    recipient_lst = json.loads(ConfigParser.get('EMAIL', 'recipient_list'))
     attachemnt_lst = ConfigParser.get('EMAIL', 'attachments')
 
     @classmethod
     def bulk_email(cls, subject, body):   
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
             smtp.login(cls.sender_email_address, cls.sender_email_password)
+            msg = EmailMessage()
+            msg['Subject'] = subject
+            msg['From'] = cls.sender_email_address
+            msg.set_content(body)            
             for recipient in cls.recipient_lst:
-                msg = EmailMessage()
-                msg['Subject'] = subject
-                msg['From'] = cls.sender_email_address
-                msg['To'] = recipient
-                msg.set_content(body)
-                smtp.send_message(msg)
+                smtp.send_message(msg=msg, to_addrs=recipient)
     
     @classmethod
     def get_recipient_list(cls):
