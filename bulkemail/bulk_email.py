@@ -11,13 +11,13 @@ import imghdr
 This class will send one email to a large group at once.
 """
 
-IMAGE_PATH = 'images/'
+ATTACHMENTS_PATH = 'attachments/'
 
 class BulkEmail:
     sender_email_address = ConfigParser.get('EMAIL', 'email_address')
     sender_email_password = ConfigParser.get('EMAIL', 'email_password')
     recipient_lst = json.loads(ConfigParser.get('EMAIL', 'recipient_list'))
-    attachemnt_lst = ConfigParser.get('EMAIL', 'attachments')
+    attachment_lst = json.loads(ConfigParser.get('EMAIL', 'attachments'))
 
     @classmethod
     def bulk_email(cls, subject, body):
@@ -28,12 +28,13 @@ class BulkEmail:
             msg['From'] = cls.sender_email_address
             msg.set_content(body)
 
-            with open(f'{IMAGE_PATH}email.png', 'rb') as f:
-                file_data = f.read()
-                file_type = imghdr.what(f.name)
-                file_name = f.name
+            for attachment in cls.attachment_lst:
+                with open(ATTACHMENTS_PATH + attachment, 'rb') as f:
+                    file_data = f.read()
+                    file_type = imghdr.what(f.name)
+                    file_name = f.name
+                    msg.add_attachment(file_data, maintype='image', subtype=file_type, filename=file_name)
 
-            msg.add_attachment(file_data, maintype='image', subtype=file_type, filename=file_name)
             for recipient in cls.recipient_lst:
                 smtp.send_message(msg=msg, to_addrs=recipient)
     
