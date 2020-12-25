@@ -21,4 +21,4 @@ subject = ConfigParser.config.get('EMAIL', 'Subject')
 body = ConfigParser.config.get('EMAIL', 'body')
 
 BulkEmail.bulk_email(subject, body)
-logger.debug(f'{BulkEmail.get_recipient_list()}')
+logger.info(f'{BulkEmail.get_recipient_list()}')
