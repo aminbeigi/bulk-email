@@ -1,5 +1,5 @@
 <p align="center">
-<img src="attachments/email.png"/>
+<img src="attachments\email.png"/>
 <br/>
 <h3 align="center">Bulk Email</h3>
 <p align="center">Source code for Bulk-Email.</p>
