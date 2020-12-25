@@ -4,11 +4,14 @@ from .config_parser import ConfigParser
 import json
 import string
 import random
+import imghdr
 
 """Bulk email many recipients
 
 This class will send one email to a large group at once.
 """
+
+IMAGE_PATH = 'images/'
 
 class BulkEmail:
     sender_email_address = ConfigParser.get('EMAIL', 'email_address')
@@ -17,13 +20,20 @@ class BulkEmail:
     attachemnt_lst = ConfigParser.get('EMAIL', 'attachments')
 
     @classmethod
-    def bulk_email(cls, subject, body):   
+    def bulk_email(cls, subject, body):
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
             smtp.login(cls.sender_email_address, cls.sender_email_password)
             msg = EmailMessage()
             msg['Subject'] = subject
             msg['From'] = cls.sender_email_address
-            msg.set_content(body)            
+            msg.set_content(body)
+
+            with open(f'{IMAGE_PATH}email.png', 'rb') as f:
+                file_data = f.read()
+                file_type = imghdr.what(f.name)
+                file_name = f.name
+
+            msg.add_attachment(file_data, maintype='image', subtype=file_type, filename=file_name)
             for recipient in cls.recipient_lst:
                 smtp.send_message(msg=msg, to_addrs=recipient)
     
