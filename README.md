@@ -22,13 +22,13 @@ Supports attachments which can be configured in config.ini.
 `git@github.com:aminbeigi/bulk-email.git`
 2. Rename template files  
 `config/config-template.ini` to `config/config.ini` and fill out fields  
-`logs/bulkemail-template.log` to `bulkemail.log`  
+`logs/bulkemail-template.log` to `logs/bulkemail.log`  
 `bulkemail/recipients-template.txt` to `bulkemail/recipients.txt`  
 `bulkemail/subject-template.txt` to `bulkemail/subject.txt`  
 `bulkemail/body-template.txt` to `bulkemail/body.txt`  
 3. Turn on "Less secure app access" if using Gmail for sender
 4. Run `bulkemail` module with 3 command line arguments      
-`python -m bulkemail bulkemail/recipients.txt bulkemail/subject.txt bulkemail/body.txt`
+`python -m bulkemail bulkemail/recipients.txt bulkemail/subject.txt bulkemail/body.txt`   
 5. Check the log file
 
 ## Requirements
