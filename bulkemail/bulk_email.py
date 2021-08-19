@@ -41,6 +41,5 @@ class BulkEmail:
         alphabet = string.ascii_uppercase
         launch_code = ''
         for i in range(length):
-            if i % 2 == 0 and i != 0: launch_code += ' '
             launch_code += random.choice(alphabet)
         return launch_code
