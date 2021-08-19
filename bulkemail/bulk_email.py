@@ -12,8 +12,8 @@ This class will send one email to a large group at once.
 """
 
 class BulkEmail:
-    sender_email_address = ConfigParser.get('EMAIL', 'email_address')
-    sender_email_password = ConfigParser.get('EMAIL', 'email_password')
+    sender_email_address = ConfigParser.get('EMAIL', 'sender_email_address')
+    sender_email_password = ConfigParser.get('EMAIL', 'sender_email_password')
     attachments_path = ConfigParser.get('FILESYSTEM', 'attachments_path')
     attachments_lst = json.loads(ConfigParser.get('EMAIL', 'attachments'))
 
