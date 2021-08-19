@@ -20,7 +20,7 @@ Supports attachments which can be configured in config.ini.
 ## Instructions
 1. Clone repo  
 `git@github.com:aminbeigi/bulk-email.git`
-2. Rename template files 
+2. Rename template files  
 `config/config-template.ini` to `config/config.ini` and fill out fields  
 `logs/bulkemail-template.log` to `bulkemail.log`  
 `bulkemail/recipients-template.txt` to `bulkemail/recipients.txt`  
