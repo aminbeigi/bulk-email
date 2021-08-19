@@ -128,8 +128,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# config.ini stuff
+# vscode
+.vscode
+
+# config
 config/config.ini
 
-# tempCodeRunner
-bulkemail/tempCodeRunnerFile.py
+# email fields
+bulkemail/recipients.txt
+bulkemail/subject.txt
+bulkemail/body.txt
