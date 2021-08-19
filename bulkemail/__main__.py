@@ -3,7 +3,7 @@ from .logger import Logger
 import sys
 
 if len(sys.argv) != 4:
-    print("Usage: python -m bulkemail bulkemail/recipients.txt bulkemail/subject bulkemail/body")
+    print("Usage: python -m bulkemail bulkemail/recipients.txt bulkemail/subject.txt bulkemail/body.txt")
     exit(1)
 
 if __name__ == '__main__':
