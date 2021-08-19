@@ -26,7 +26,7 @@ Supports attachments which can be configured in config.ini.
 `bulkemail/recipients-template.txt` to `bulkemail/recipients.txt`  
 `bulkemail/subject-template.txt` to `bulkemail/subject.txt`  
 `bulkemail/body-template.txt` to `bulkemail/body.txt`  
-3. Turn on "Less secure app access" if using Gmail for Sender
+3. Turn on "Less secure app access" if using Gmail for sender
 4. Run `bulkemail` module with 3 command line arguments      
 `python -m bulkemail bulkemail/recipients.txt bulkemail/subject.txt bulkemail/body.txt`
 5. Check the log file
